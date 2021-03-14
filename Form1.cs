@@ -103,5 +103,10 @@ namespace img_processing
             backgroundWorker1.RunWorkerAsync(filter);
 
         }
+         private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SobelFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
