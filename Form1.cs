@@ -103,5 +103,19 @@ namespace img_processing
             backgroundWorker1.RunWorkerAsync(filter);
 
         }
+
+        private void grayWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayWorld();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+
+        private void glassEffectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GlassEffect();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
     }
 }
