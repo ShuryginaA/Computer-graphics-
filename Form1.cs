@@ -108,5 +108,25 @@ namespace img_processing
             Filters filter = new SobelFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+        
+        private void sharpnessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new sharpnessFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Image files|*.png;*.jpg;*.bmp|All Files (*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dialog.FileName != "")
+                {
+                    string imageFileName = dialog.FileName;
+                    pictureBox1.Image.Save(imageFileName);
+                }
+            }
+        }
     }
 }
