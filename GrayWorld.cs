@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 
-
 namespace img_processing
 {
     class GrayWorld:Filters
