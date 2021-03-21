@@ -106,12 +106,26 @@ namespace img_processing
             backgroundWorker1.RunWorkerAsync(filter);
 
         }
-         private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void grayWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayWorld();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+
+        private void glassEffectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GlassEffect();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+        private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new SobelFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
-        
+
         private void sharpnessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new sharpnessFilter();
@@ -131,7 +145,7 @@ namespace img_processing
                 }
             }
         }
-
+        
         private void medianToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new medianFilter(9);
@@ -163,5 +177,6 @@ namespace img_processing
                 Gistogramm.Show();
             }
         }
+
     }
 }
