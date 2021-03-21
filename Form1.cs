@@ -12,11 +12,14 @@ namespace img_processing
 {
     public partial class Form1 : Form
     {
+        Bitmap image;
+        public int[] GistogrammPoints;
+        Form2 Gistogramm;
+
         public Form1()
         {
             InitializeComponent();
         }
-        Bitmap image;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -103,6 +106,7 @@ namespace img_processing
             backgroundWorker1.RunWorkerAsync(filter);
 
         }
+        
          private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new SobelFilter();
@@ -203,6 +207,77 @@ namespace img_processing
             pictureBox1.Image = resultImage;
             pictureBox1.Refresh();
             //В разработке, фиксить пересечение потоков
+        }
+
+        private void grayWorldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayWorld();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+
+        private void glassEffectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GlassEffect();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+        private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SobelFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void sharpnessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new sharpnessFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Image files|*.png;*.jpg;*.bmp|All Files (*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dialog.FileName != "")
+                {
+                    string imageFileName = dialog.FileName;
+                    pictureBox1.Image.Save(imageFileName);
+                }
+            }
+        }
+        
+        private void medianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new medianFilter(9);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void linearStretchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap sourceIMG = (Bitmap)pictureBox1.Image;
+            Filters filter = new linearStretchingFilter(sourceIMG);
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void gistogrammToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap sourceIMG = (Bitmap)pictureBox1.Image;
+            if (!backgroundWorker1.IsBusy)
+            {
+                GistogrammPoints = new int[256];
+                for (int x = 0; x < sourceIMG.Width; x++)
+                {
+                    for (int y = 0; y < sourceIMG.Height; y++)
+                    {
+                        int Point = (int)(sourceIMG.GetPixel(x, y).R * 0.299 + sourceIMG.GetPixel(x, y).G * 0.587 + sourceIMG.GetPixel(x, y).B * 0.114); //Y(NTSC) = 0,299R + 0,587G + 0,114B
+                        GistogrammPoints[Point]++;
+                    }
+                }
+                Gistogramm = new Form2(this);
+                Gistogramm.Show();
+            }
         }
     }
 }
