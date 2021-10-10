@@ -124,6 +124,16 @@ teacherSalaries={
 #Системы поддержки принятия решений
 'decisionSupportSystemsTeacher':228
 }
+
+otherEmployeeSalaries={
+'methodists':220*2, 
+'bookkeeper':225*2,
+'sysadmin':225,
+'gurdian':140*3,
+'cleaning':150*2}
+
+#Стоимость столов (15столов*4 аудитории), стульев(30 шт*4 аудитории), доски на этаж(4)
+costsOfFurniture=15*4*3000+30*4*1000+8000*4
 ###Студенты в группах
 groupType1=12
 groupType2=22
@@ -319,9 +329,11 @@ subjectByHoursAndSemesterslist=[history,philosophy,economy,designingAndArchitect
                                 projectActivityInTheFieldOfSoftwareEngineering]
 ###Плата за аренду(м^2) в рублях
 rentMeter=500
-###Плата за коммунальные услуги(м^2) в рублях
+###Плата за коммунальные услуги(м^2) в рублях в месяц
 utilites=100
-#
-
-#
+#Примерная площадь половины этажа (м^2) (достаточно для 4 групп) в месяц
+square=300 
+#Стоимость содержания половины этажа в течение 4 лет
+squareCosts=(rentMeter+utilites)*12*4*square
 ##
+
