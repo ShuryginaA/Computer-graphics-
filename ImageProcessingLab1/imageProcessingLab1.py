@@ -298,8 +298,7 @@ projectActivityInTheFieldOfSoftwareEngineering=subjectByHoursAndSemesters('proje
 #
 ##Дисциплины по выбору
 #Наглядный вероятностно-статистический анализ данных
-visualProbabilisticAndStatisticalDataAnalysis=subjectByHoursAndSemesters
-('visualProbabilisticAndStatisticalDataAnalysis',108,[8])
+visualProbabilisticAndStatisticalDataAnalysis=subjectByHoursAndSemesters('visualProbabilisticAndStatisticalDataAnalysis', 108, [8])
 #Теория выбора и принятия решений
 theoryOfChoiceAndDecisionMaking=subjectByHoursAndSemesters('theoryOfChoiceAndDecisionMaking',
                                                            108, [8])
@@ -326,7 +325,8 @@ subjectByHoursAndSemesterslist=[history,philosophy,economy,designingAndArchitect
                                 documetationOfSoftware,theInternetOfThings,managementOfTelecommunicationSystems,
                                 imageProcessing,newArchitectProgramming,basicsOfComputerVision,
                                 cloudCalculations,developmentOfNetworkApplications,
-                                projectActivityInTheFieldOfSoftwareEngineering]
+                                projectActivityInTheFieldOfSoftwareEngineering, visualProbabilisticAndStatisticalDataAnalysis,
+                                theoryOfChoiceAndDecisionMaking, programmingOfMobileSystems, decisionSupportSystems]
 ###Плата за аренду(м^2) в рублях
 rentMeter=500
 ###Плата за коммунальные услуги(м^2) в рублях в месяц
@@ -337,3 +337,103 @@ square=300
 squareCosts=(rentMeter+utilites)*12*4*square
 ##
 
+#Считаем зарплаты преподавателей за 4 года с учётом количества часов
+historySalary = history.getHours()*teacherSalaries['historyTeacher']
+philosophySalary = philosophy.getHours()*teacherSalaries['philosophyTeacher']
+econonomySalary = economy.getHours()*teacherSalaries['economyTeacher']
+englishSalary = english.getHours()*teacherSalaries['englishTeacher']
+higherMathSalary = higherMath.getHours()*teacherSalaries['higherMathTeacher']
+discretMathSalary = discretMath.getHours()*teacherSalaries['discretMathTeacher']
+mathAndAlgorithmTheorySalary = mathAndAlgorithmTheory.getHours()*teacherSalaries['mathAndAlgorithmTheoryTeacher']
+automataTheorySalary = automataTheory.getHours()*teacherSalaries['automataTheoryTeacher']
+probabilitiesTheoryAndMathStatisticsSalary = probabilitiesTheoryAndMathStatistics.getHours()*teacherSalaries['probabilitiesTheoryAndMathStatisticsTeacher']
+computerScienceAndProgrammmingSalary = computerScienceAndProgrammming.getHours()*teacherSalaries['computerScienceAndProgrammmingTeacher']
+computingSystemsArchitectureSalary = computingSystemsArchitecture.getHours()*teacherSalaries['computingSystemsArchitectureTeacher']
+operatingSystemsSalary = operatingSystems.getHours()*teacherSalaries['operatingSystemsTeacher']
+dataBaseTehnologySalary = dataBaseTehnology.getHours()*teacherSalaries['dataBaseTehnologyTeacher']
+programEngineeringEconomySalary = programEngineeringEconomy.getHours()*teacherSalaries['programEngineeringEconomyTeacher']
+physicalEducationSalary = physicalEducation.getHours()*teacherSalaries['physicalEducationTeacher']
+lifeSafetySalary = lifeSafety.getHours()*teacherSalaries['lifeSafetyTeacher']
+jurisprudenceSalary = jurisprudence.getHours()*teacherSalaries['jurisprudenceTeacher']
+socioEthicalIssuesOfInformationTechnologySalary = socioEthicalIssuesOfInformationTechnology.getHours()*teacherSalaries['socioEthicalIssuesOfInformationTechnologyTeacher']
+phisicsSalary = phisics.getHours()*teacherSalaries['phisicsTeacher']
+fundamentalsOfInformationTechnologySecuritySalary = fundamentalsOfInformationTechnologySecurity.getHours()*teacherSalaries['fundamentalsOfInformationTechnologySecurityTeacher']
+optimizationMethodsSalary = optimizationMethods.getHours()*teacherSalaries['optimizationMethodsTeacher']
+operationsResearchSalary = operationsResearch.getHours()*teacherSalaries['operationsResearchTeacher']
+computerNetworkSalary = computerNetwork.getHours()*teacherSalaries['computerNetworkTeacher']
+numericalMethodsSalary = numericalMethods.getHours()*teacherSalaries['numericalMethodsTeacher']
+enteringProjectWorkingSalary = enteringProjectWorking.getHours()*teacherSalaries['enteringProjectWorkingTeacher']
+systemTheoryAndAnalitycsSalary = systemTheoryAndAnalitycs.getHours()*teacherSalaries['systemTheoryAndAnalitycsTeacher']
+visualTechnologyProgrammingSalary = visualTechnologyProgramming.getHours()*teacherSalaries['visualTechnologyProgrammingTeacher']
+javaSalary = java.getHours()*teacherSalaries['javaTeacher']
+parallelProgrammingSalary = parallelProgramming.getHours()*teacherSalaries['parallelProgrammingTeacher']
+internetTechnologySalary = internetTechnology.getHours()*teacherSalaries['InternetTechnologyTeacher']
+developmentAndAnalitycsRequarementsSalary = developmentAndAnalitycsRequarements.getHours()*teacherSalaries['developmentAndAnalitycsRequarementsTeacher']
+robotProrammingSalary = robotProramming.getHours()*teacherSalaries['robotProrammingTeacher']
+softwareTestingSalary = softwareTesting.getHours()*teacherSalaries['softwareTestingTeacher']
+programProductManagementSalary = programProductManagement.getHours()*teacherSalaries['programProductManagementTeacher']
+technologyOfDistributedProcessingSalary = technologyOfDistributedProcessing.getHours()*teacherSalaries['technologyOfDistributedProcessingTeacher']
+constructionOfSoftwareSalary = constructionOfSoftware.getHours()*teacherSalaries['constructionOfSoftwareTeacher']
+designingAndArchitectureOfSoftwareSystemsSalary = designingAndArchitectureOfSoftwareSystems.getHours()*teacherSalaries['designingAndArchitectureOfSoftwareSystemsTeacher']
+algorithmsAndDataStructureSalary = algorithmsAndDataStructure.getHours()*teacherSalaries['algorithmsAndDataStructureTeacher']
+programmingToolsSalary = programmingTools.getHours()*teacherSalaries['programmingToolsTeacher']
+computerGraphicsSalary = computerGraphics.getHours()*teacherSalaries['computerGraphicsTeacher']
+designingHumanMachineInterfaceSalary = designingHumanMachineInterface.getHours()*teacherSalaries['designingHumanMachineInterfaceTEacher']
+computerMathSystemSalary = computerMathSystem.getHours()*teacherSalaries['computerMathSystemTeacher']
+introductionToTheInternetOfThingsSalary = introductionToTheInternetOfThings.getHours()*teacherSalaries['introductionToTheInternetOfThingsTeacher']
+documetationOfSoftwareSalary = documetationOfSoftware.getHours()*teacherSalaries['documetationOfSoftwareTeacher']
+theInternetOfThingsSalary = theInternetOfThings.getHours()*teacherSalaries['theInternetOfThingsTeacher']
+managementOfTelecommunicationSystemsSalary = managementOfTelecommunicationSystems.getHours()*teacherSalaries['managementOfTelecommunicationSystemsTeacher']
+imageProcessingSalary = imageProcessing.getHours()*teacherSalaries['imageProcessingTeacher']
+newArchitectProgrammingSalary = newArchitectProgramming.getHours()*teacherSalaries['newArchitectProgrammingTeacher']
+basicsOfComputerVisionSalary = basicsOfComputerVision.getHours()*teacherSalaries['basicsOfComputerVisionTeacher']
+cloudCalculationsSalary = cloudCalculations.getHours()*teacherSalaries['cloudCalculationsTeacher']
+developmentOfNetworkApplicationsSalary = developmentOfNetworkApplications.getHours()*teacherSalaries['developmentOfNetworkApplicationsTeacher']
+projectActivityInTheFieldOfSoftwareEngineeringSalary = projectActivityInTheFieldOfSoftwareEngineering.getHours()*teacherSalaries['projectActivityInTheFieldOfSoftwareEngineeringTeacher']
+
+##Добавим ещё и предметы по выбору
+visualProbabilisticAndStatisticalDataAnalysisSalary = visualProbabilisticAndStatisticalDataAnalysis.getHours()*teacherSalaries['visualProbabilisticAndStatisticalDataAnalysisTeacher']
+theoryOfChoiceAndDecisionMakingSalary = theoryOfChoiceAndDecisionMaking.getHours()*teacherSalaries['theoryOfChoiceAndDecisionMakingTeacher']
+programmingOfMobileSystemsSalary = programmingOfMobileSystems.getHours()*teacherSalaries['programmingOfMobileSystemsTeacher']
+decisionSupportSystemsSalary = decisionSupportSystems.getHours()*teacherSalaries['decisionSupportSystemsTeacher']
+
+#Для упрощения вычислений создадим коллаж/последовательность полученных данных
+SalaryList =  [historySalary, philosophySalary, econonomySalary, englishSalary, higherMathSalary, discretMathSalary, mathAndAlgorithmTheorySalary, automataTheorySalary,
+              probabilitiesTheoryAndMathStatisticsSalary, computerScienceAndProgrammmingSalary, computingSystemsArchitectureSalary, operatingSystemsSalary,
+              dataBaseTehnologySalary, programEngineeringEconomySalary, physicalEducationSalary, lifeSafetySalary, jurisprudenceSalary, socioEthicalIssuesOfInformationTechnologySalary,
+              phisicsSalary, fundamentalsOfInformationTechnologySecuritySalary, optimizationMethodsSalary, operationsResearchSalary, computerNetworkSalary,
+              numericalMethodsSalary, enteringProjectWorkingSalary, systemTheoryAndAnalitycsSalary, visualTechnologyProgrammingSalary, javaSalary, parallelProgrammingSalary,
+              internetTechnologySalary, developmentAndAnalitycsRequarementsSalary, robotProrammingSalary, softwareTestingSalary, programProductManagementSalary,
+              technologyOfDistributedProcessingSalary, constructionOfSoftwareSalary, designingAndArchitectureOfSoftwareSystemsSalary, algorithmsAndDataStructureSalary,
+              programmingToolsSalary, computerGraphicsSalary, designingHumanMachineInterfaceSalary, computerMathSystemSalary, introductionToTheInternetOfThingsSalary, 
+              documetationOfSoftwareSalary, theInternetOfThingsSalary, managementOfTelecommunicationSystemsSalary, imageProcessingSalary, newArchitectProgrammingSalary, 
+              basicsOfComputerVisionSalary, cloudCalculationsSalary, developmentOfNetworkApplicationsSalary, projectActivityInTheFieldOfSoftwareEngineeringSalary,
+             visualProbabilisticAndStatisticalDataAnalysisSalary, theoryOfChoiceAndDecisionMakingSalary, programmingOfMobileSystemsSalary, decisionSupportSystemsSalary]
+
+#А теперь КУЛЬМИНАЦИЯ - считаем стоимость обучения
+##Введём ряд переменных
+##tmpCost - временная переменная для расчёта стоимости;
+##offlineCost, onlineCost - итоговая стоимость очного и дистанционного обучения соответственно
+##stafCostOnline, stafCostOffline - зарплаты сотрудников при дистанционном и очном обучении соответственно
+
+tmpCost = 0
+offlineCost = 0
+onlineCost = 0
+stafCostOffline = 0
+stafCostOnline = 0
+
+#С помощью цикла просуммируем зарплаты всех преподавателей
+for i in range(len(SalaryList)):
+    tmpCost = tmpCost + SalaryList[i]
+
+#Зарплата сотрудников
+stafCostOffline = (otherEmployeeSalaries['methodists'] + otherEmployeeSalaries['bookkeeper'] + otherEmployeeSalaries['sysadmin'] + otherEmployeeSalaries['gurdian'] + otherEmployeeSalaries['cleaning'])*12*4
+stafCostOnline = (otherEmployeeSalaries['methodists']+otherEmployeeSalaries['sysadmin'])*12*4
+
+#Итоговый ответ
+offlineCost = ((tmpCost + stafCostOffline + costsOfFurniture + squareCosts) // 88) // 4
+onlineCost = ((tmpCost + stafCostOnline) // 88) // 4
+
+print('Стоимость очного обучения одной персоны за один год: ' + str(offlineCost*10) + ' российских рублей')
+print('Стоимость дистанционного обучения одной персоны за один год: ' + str(onlineCost*10) + ' российских рублей')
+# *10 для приведения к нашим "денежным реалиям"
