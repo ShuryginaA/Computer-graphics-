@@ -298,8 +298,7 @@ projectActivityInTheFieldOfSoftwareEngineering=subjectByHoursAndSemesters('proje
 #
 ##Дисциплины по выбору
 #Наглядный вероятностно-статистический анализ данных
-visualProbabilisticAndStatisticalDataAnalysis=subjectByHoursAndSemesters
-('visualProbabilisticAndStatisticalDataAnalysis',108,[8])
+visualProbabilisticAndStatisticalDataAnalysis=subjectByHoursAndSemesters('visualProbabilisticAndStatisticalDataAnalysis', 108, [8])
 #Теория выбора и принятия решений
 theoryOfChoiceAndDecisionMaking=subjectByHoursAndSemesters('theoryOfChoiceAndDecisionMaking',
                                                            108, [8])
@@ -326,7 +325,8 @@ subjectByHoursAndSemesterslist=[history,philosophy,economy,designingAndArchitect
                                 documetationOfSoftware,theInternetOfThings,managementOfTelecommunicationSystems,
                                 imageProcessing,newArchitectProgramming,basicsOfComputerVision,
                                 cloudCalculations,developmentOfNetworkApplications,
-                                projectActivityInTheFieldOfSoftwareEngineering]
+                                projectActivityInTheFieldOfSoftwareEngineering, visualProbabilisticAndStatisticalDataAnalysis,
+                                theoryOfChoiceAndDecisionMaking, programmingOfMobileSystems, decisionSupportSystems]
 ###Плата за аренду(м^2) в рублях
 rentMeter=500
 ###Плата за коммунальные услуги(м^2) в рублях в месяц
@@ -343,14 +343,14 @@ philosophySalary = philosophy.getHours()*teacherSalaries['philosophyTeacher']
 econonomySalary = economy.getHours()*teacherSalaries['economyTeacher']
 englishSalary = english.getHours()*teacherSalaries['englishTeacher']
 higherMathSalary = higherMath.getHours()*teacherSalaries['higherMathTeacher']
-discretMathSalary = discretMath.getHours()*teacherSalaries['discretMathSalaryTeacher']
+discretMathSalary = discretMath.getHours()*teacherSalaries['discretMathTeacher']
 mathAndAlgorithmTheorySalary = mathAndAlgorithmTheory.getHours()*teacherSalaries['mathAndAlgorithmTheoryTeacher']
 automataTheorySalary = automataTheory.getHours()*teacherSalaries['automataTheoryTeacher']
 probabilitiesTheoryAndMathStatisticsSalary = probabilitiesTheoryAndMathStatistics.getHours()*teacherSalaries['probabilitiesTheoryAndMathStatisticsTeacher']
 computerScienceAndProgrammmingSalary = computerScienceAndProgrammming.getHours()*teacherSalaries['computerScienceAndProgrammmingTeacher']
 computingSystemsArchitectureSalary = computingSystemsArchitecture.getHours()*teacherSalaries['computingSystemsArchitectureTeacher']
 operatingSystemsSalary = operatingSystems.getHours()*teacherSalaries['operatingSystemsTeacher']
-dataBaseTehnologySalary = dataBaseTehnology.getHours()*teacherSalaries['dataBaseTehnologyTeachers']
+dataBaseTehnologySalary = dataBaseTehnology.getHours()*teacherSalaries['dataBaseTehnologyTeacher']
 programEngineeringEconomySalary = programEngineeringEconomy.getHours()*teacherSalaries['programEngineeringEconomyTeacher']
 physicalEducationSalary = physicalEducation.getHours()*teacherSalaries['physicalEducationTeacher']
 lifeSafetySalary = lifeSafety.getHours()*teacherSalaries['lifeSafetyTeacher']
@@ -427,13 +427,13 @@ for i in range(len(SalaryList)):
     tmpCost = tmpCost + SalaryList[i]
 
 #Зарплата сотрудников
-stafCostOffline = (otherEmployeeSalaries['methodists'] + otherEmployeeSalaries['bookkeeper'] + otherEmployeeSalaries['sysadmin'] + otherEmployeeSalaries['gurdian'] 
-            + otherEmployeeSalaries['cleaning'])*12*4
+stafCostOffline = (otherEmployeeSalaries['methodists'] + otherEmployeeSalaries['bookkeeper'] + otherEmployeeSalaries['sysadmin'] + otherEmployeeSalaries['gurdian'] + otherEmployeeSalaries['cleaning'])*12*4
 stafCostOnline = (otherEmployeeSalaries['methodists']+otherEmployeeSalaries['sysadmin'])*12*4
 
 #Итоговый ответ
 offlineCost = ((tmpCost + stafCostOffline + costsOfFurniture + squareCosts) // 88) // 4
 onlineCost = ((tmpCost + stafCostOnline) // 88) // 4
 
-print('Стоимость очного обучения одной персоны за один год: ' + str(offlineCost) + ' российских рублей')
-print('Стоимость дистанционного обучения одной персоны за один год: ' + str(onlineCost) + ' российских рублей')
+print('Стоимость очного обучения одной персоны за один год: ' + str(offlineCost*10) + ' российских рублей')
+print('Стоимость дистанционного обучения одной персоны за один год: ' + str(onlineCost*10) + ' российских рублей')
+# *10 для приведения к нашим "денежным реалиям"
