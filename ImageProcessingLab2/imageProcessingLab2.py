@@ -88,3 +88,25 @@ def CalcOfDamageAndNonDamage(image_name):
     mask[leafs_area_bgr > 1] = (255, 0, 255)
     mask[ill_part > 1] = (0, 0, 255)
     return mask
+
+def MedianBlur(img,n):
+    blur = cv.blur(img,(5,5))
+    plt.figure(figsize=(10,8),dpi=100)
+    plt.subplot (n), plt.imshow (img [:,:, :: - 1]), plt.title ('img')
+    plt.xticks([]), plt.yticks([])
+    plt.subplot (n), plt.imshow (blur [:,:, :: - 1]), plt.title ('result')
+    plt.xticks([]), plt.yticks([])
+    plt.show()
+    
+MedianBlur(img1, i)
+MedianBlur(img2, i)
+MedianBlur(img3, i)
+MedianBlur(img4, i)
+MedianBlur(img5, i)
+MedianBlur(img6, i)
+MedianBlur(img7, i)
+MedianBlur(img8, i)
+MedianBlur(img9, i)
+MedianBlur(img10, i)
+MedianBlur(img11, i)
+MedianBlur(img12, i)
