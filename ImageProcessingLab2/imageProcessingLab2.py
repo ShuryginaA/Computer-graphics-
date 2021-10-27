@@ -119,6 +119,19 @@ def GaussianFilter(img,n):
     plt.subplot(122), plt.imshow(gauss, cmap='gray'),plt.title('Gaussian Filter')
     plt.xticks([]), plt.yticks([])
     plt.show()
+    
+GaussianFilter(img1,i)
+GaussianFilter(img2,i)
+GaussianFilter(img3,i)
+GaussianFilter(img4,i)
+GaussianFilter(img5,i)
+GaussianFilter(img6,i)
+GaussianFilter(img7,i)
+GaussianFilter(img8,i)
+GaussianFilter(img9,i)
+GaussianFilter(img10,i)
+GaussianFilter(img11,i)
+GaussianFilter(img12,i)
 
    
 
