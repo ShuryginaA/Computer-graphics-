@@ -110,3 +110,16 @@ MedianBlur(img9, i)
 MedianBlur(img10, i)
 MedianBlur(img11, i)
 MedianBlur(img12, i)
+
+def GaussianFilter(img,n):
+    gauss = cv2.GaussianBlur(img, (10, 8),0)
+    plt.figure(figsize=(11,6))
+    plt.subplot(121), plt.imshow(img, cmap='gray'),plt.title('Original')
+    plt.xticks([]), plt.yticks([])
+    plt.subplot(122), plt.imshow(gauss, cmap='gray'),plt.title('Gaussian Filter')
+    plt.xticks([]), plt.yticks([])
+    plt.show()
+
+   
+
+
