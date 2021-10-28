@@ -3,6 +3,7 @@ import sys
 import numpy as np
 from matplotlib import pyplot as plt
 
+#Чтение изображений
 img1 = cv.imread('1.jpg')
 img2 = cv.imread('2.jpg')
 img3 = cv.imread('3.jpg')
@@ -18,7 +19,7 @@ img12 = cv.imread('12.jpg')
 
 i = 211
 
-
+#Нелокальный сглаживающий фильт 
 def NonLocalMeans(img, n):
     b, g, r = cv.split(img)
     rgb_img = cv.merge([r, g, b])
@@ -45,7 +46,7 @@ NonLocalMeans(img10, i)
 NonLocalMeans(img11, i)
 NonLocalMeans(img12, i)
 
-
+#Билатериальный фильтр
 def BilaterialFilter(img, n):
     b, g, r = cv.split(img)
     rgb_img = cv.merge([r, g, b])
@@ -69,7 +70,7 @@ BilaterialFilter(img10, i)
 BilaterialFilter(img11, i)
 BilaterialFilter(img12, i)
 
-
+#Функция обнаружения повреждённой части листа
 def CalcOfDamageAndNonDamage(image_name):
     image = cv.imread(image_name)
     kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, (7, 7))
@@ -89,6 +90,7 @@ def CalcOfDamageAndNonDamage(image_name):
     mask[ill_part > 1] = (0, 0, 255)
     return mask
 
+#Медианный фильтр
 def MedianBlur(img,n):
     blur = cv.blur(img,(5,5))
     plt.figure(figsize=(10,8),dpi=100)
@@ -111,8 +113,9 @@ MedianBlur(img10, i)
 MedianBlur(img11, i)
 MedianBlur(img12, i)
 
+#Фильтр Гаусса
 def GaussianFilter(img,n):
-    gauss = cv2.GaussianBlur(img, (10, 8),0)
+    gauss = cv.GaussianBlur(img, (10, 8),0)
     plt.figure(figsize=(11,6))
     plt.subplot(121), plt.imshow(img, cmap='gray'),plt.title('Original')
     plt.xticks([]), plt.yticks([])
